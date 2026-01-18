@@ -1,0 +1,8 @@
+{
+  "name": "Reson",
+  "description": "Your knowledge, in conversation. Reson turns information into understanding through synthesis and sound.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

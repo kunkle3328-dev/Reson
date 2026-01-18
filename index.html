@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Reson — Your knowledge, in conversation.</title>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom": "https://esm.sh/react-dom@18.2.0/client",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+        "@google/genai": "https://esm.sh/@google/genai",
+        "react-markdown": "https://esm.sh/react-markdown@9.0.1?deps=react@18.2.0",
+        "remark-gfm": "https://esm.sh/remark-gfm@4.0.0",
+        "react/": "https://esm.sh/react@^18.2.0/",
+        "react-dom/": "https://esm.sh/react-dom@^18.2.0/"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              reson: {
+                bg: '#050914',
+                royal: '#3b82f6',
+                deep: '#1e3a8a',
+                intel: '#6366f1',
+                glass: 'rgba(15, 23, 42, 0.45)',
+                border: 'rgba(96, 165, 250, 0.22)',
+                text: '#f8fafc',
+                muted: '#94a3b8',
+                audio: '#10b981',
+                nav: '#3b82f6',
+                accent: '#60a5fa',
+                warn: '#f59e0b'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+          --royal-blue: #3b82f6;
+          --royal-blue-glow: rgba(59, 130, 246, 0.6);
+          --fs-h1: clamp(20px, 4vw, 26px);
+          --fs-h2: 18px;
+          --fs-body: 14.5px;
+          --fs-meta: 12.5px;
+          --pad-card: 16px;
+          --radius-card: 16px;
+        }
+
+        body { 
+          font-family: 'Plus Jakarta Sans', sans-serif; 
+          color: #f8fafc;
+          background: #050914;
+          -webkit-font-smoothing: antialiased;
+          overflow: hidden;
+          margin: 0;
+          height: 100dvh;
+        }
+
+        h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; font-weight: 800; }
+        h2 { font-size: var(--fs-h2); font-weight: 700; }
+        p  { font-size: var(--fs-body); line-height: 1.55; }
+
+        .glass-panel {
+          background: radial-gradient(
+            120% 120% at 50% 10%,
+            rgba(120,180,255,0.08),
+            rgba(0,0,0,0.6)
+          );
+          backdrop-filter: blur(24px) saturate(160%);
+          -webkit-backdrop-filter: blur(24px) saturate(160%);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+
+        @media (max-width: 768px) {
+          .glass-panel {
+            backdrop-filter: blur(14px);
+            background: rgba(18, 22, 30, 0.75);
+            box-shadow: none;
+            padding: var(--pad-card);
+            border-radius: var(--radius-card);
+          }
+          
+          .glass {
+            backdrop-filter: blur(14px);
+            background: rgba(18, 22, 30, 0.75);
+            box-shadow: none;
+          }
+        }
+
+        .orb-core {
+          border-radius: 50%;
+          transition: transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 600ms ease;
+          position: relative;
+          z-index: 10;
+          width: 100%;
+          height: 100%;
+        }
+
+        .orb-core[data-phase="listening"] { background: #4cc9f0; }
+        .orb-core[data-phase="thinking"] { background: #4361ee; }
+        .orb-core[data-phase="synthesizing"] { background: #7209b7; }
+        .orb-core[data-phase="speaking"] { background: #3a86ff; }
+        .orb-core[data-phase="explaining"] { background: #6366f1; }
+
+        .light-flow {
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(120,200,255,0.1),
+            transparent
+          );
+          animation: drift linear infinite;
+        }
+
+        @keyframes drift {
+          from { transform: translate(-40%, -40%) rotate(0deg); }
+          to   { transform: translate(40%, 40%) rotate(360deg); }
+        }
+
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.3); border-radius: 10px; }
+
+        .btn-premium { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        
+        @keyframes breathe {
+          0%, 100% { transform: scale(0.96); opacity: 0.8; }
+          50% { transform: scale(1); opacity: 1; }
+        }
+        .animate-breathe { animation: breathe 4s ease-in-out infinite; }
+    </style>
+</head>
+<body class="pb-safe">
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
