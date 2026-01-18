@@ -292,7 +292,7 @@ const App: React.FC = () => {
       <div className="md:hidden sticky top-0 z-40 px-2 py-1 flex items-center bg-[#070B14]/90 backdrop-blur-2xl border-b border-white/5">
         <button onClick={() => setIsSidebarOpen(true)} className="p-2 text-blue-500 active:scale-90 text-xl">☰</button>
         <div className="flex-1 flex gap-1 overflow-x-auto no-scrollbar py-1">
-          {(['chat', 'audio', 'explore', 'reflections', 'hypotheses', 'timeline', 'sources'] as const).map(v => (
+          {(['sources', 'chat', 'audio', 'explore', 'reflections', 'hypotheses', 'timeline'] as const).map(v => (
             <button key={v} onClick={() => setView(v)} className={`px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-tight transition-all whitespace-nowrap ${view === v ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-500'}`}>{v === 'audio' ? '🎧 Audio' : v}</button>
           ))}
         </div>
@@ -334,7 +334,7 @@ const App: React.FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <div className="flex bg-white/5 rounded-xl p-1 border border-white/10">
-                  {(['chat', 'audio', 'explore', 'reflections', 'hypotheses', 'timeline'] as const).map(v => (
+                  {(['sources', 'chat', 'audio', 'explore', 'reflections', 'hypotheses', 'timeline'] as const).map(v => (
                     <button key={v} onClick={() => setView(v)} className={`px-3 py-1.5 rounded-lg text-[8.5px] font-black uppercase tracking-tight transition-all ${view === v ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/40' : 'text-slate-500 hover:text-white'}`}>{v === 'audio' ? '🎧 Audio' : v}</button>
                   ))}
                 </div>
